@@ -1,0 +1,62 @@
+<section class="row">
+  <div class="col-lg-offset-3 col-lg-5" ng-controller="signupCtrl">  
+    <div class="registerbox">
+      <div class="panel panel-info" >
+        <div class="panel-heading">
+          <div class="panel-title">Company Sign Up</div>
+        </div>     
+        <div class="panel-body" >
+          <form id="registerCompanyform" class="form-horizontal" role="form"> 
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-home"></i>
+              </span>
+              <input type="text" class="form-control" name="companyName"  placeholder="company Name" ng-model="company.companyName"/>       
+            </div>            
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <input type="text" class="form-control" name="companyEmail" value="" placeholder="company Email" ng-model="company.companyEmail">       
+            </div> 
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" name="firstPassword" placeholder="password" ng-model="company.companyPlainPasswordFirst">
+            </div> 
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" name="secondPassword" placeholder="Retape password" ng-model="company.companyPlainPasswordSecond">
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-phone"></i>
+              </span>
+              <input type="text" class="form-control" name="companyPhone" value="" placeholder="company Phone" ng-model="company.companyPhone">       
+            </div>
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-globe"></i>
+              </span>
+              <input type="text" class="form-control" name="companyAdress" value="" placeholder="company Adress" ng-model="company.companyAdress">       
+            </div>              
+            <div class="form-group text-center" >
+              <a id="btn-login" ng-click="companySignUp()" class="btn btn-success">Sign Up </a>
+            </div>
+          </form>  
+        </div>                 
+      </div> 
+    </div>
+    <div class="panel panel-info" ng-show='singupStatus' style='border-color:#EFABAB;'>
+      <div class="panel-heading" style='background-color:#EFABAB;'>
+        <div class="panel-title">Errors</div>
+      </div>     
+      <div class="panel-body" >
+        <h4><p ng-bind-html='singupStatus'/></h4>
+      </div>
+    </div>
+  </div>
+</section>

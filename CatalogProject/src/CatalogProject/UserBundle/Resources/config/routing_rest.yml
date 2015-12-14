@@ -1,0 +1,8 @@
+Signin : 
+  type: rest
+  resource:     "CatalogProjectUserBundle:Signin"
+  name_prefix:  api_
+  requirements:
+        _method:  POST|GET
+
+

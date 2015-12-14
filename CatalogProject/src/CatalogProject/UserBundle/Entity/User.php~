@@ -1,0 +1,60 @@
+<?php
+
+
+namespace CatalogProject\UserBundle\Entity;
+
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * @ORM\Entity
+ * @ORM\Table(name="fos_user")
+ */
+class User extends BaseUser
+{
+    /**
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    public $id;
+
+    /**
+     * @ORM\Column(type="string")
+    */
+    public $type;
+    /**
+     * @ORM\Column(type="string")
+    */
+    public $creationDate;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+    */
+    public $companyPhone;
+    /**
+     * @ORM\Column(type="string",nullable=true)
+    */
+    public $companyAdress;
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+    */
+    public $profilePicture;
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="CatalogProject\AppManagementBundle\Entity\Catalog", mappedBy="user")
+    */
+    private $catalogs;
+
+    
+
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+    }
+
+   
+}

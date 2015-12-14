@@ -1,0 +1,17 @@
+.container {
+	width: 100%;
+	padding-right: 0px;
+    padding-left: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+.row {
+	 margin-top:100px;
+}
+.registerbox {
+	padding-top: 10px;
+}
+.input-group{
+	padding-top: 10px;
+	padding-bottom: 15px; 
+}

@@ -1,0 +1,13 @@
+User : 
+  type: rest
+  resource:     "CatalogProjectAppManagementBundle:User"
+  name_prefix:  api_
+  requirements:
+        _method:  POST|GET
+
+Company : 
+  type: rest
+  resource:     "CatalogProjectAppManagementBundle:Company"
+  name_prefix:  api_
+  requirements:
+        _method:  POST|GET

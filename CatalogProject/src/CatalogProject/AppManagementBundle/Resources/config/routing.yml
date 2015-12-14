@@ -1,0 +1,3 @@
+catalog_project_app_management_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CatalogProjectAppManagementBundle:Default:index }

@@ -1,0 +1,52 @@
+<section class="row">
+  <div class="col-lg-offset-3 col-lg-5"  ng-controller="signupCtrl">  
+    <div class="registerbox">
+      <div class="panel panel-info" >
+        <div class="panel-heading">
+          <div class="panel-title">User Sign Up</div>
+        </div>     
+        <div class="panel-body" >
+          <form id="registerUserform" class="form-horizontal" role="form" name="form">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-envelope"></i>
+              </span>
+              <input type="text" class="form-control" name="email" type="email" placeholder="Email" ng-model="user.email">
+            </div>           
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </span>
+              <input type="text" class="form-control" name="username" value="" placeholder="username" ng-model="user.username">       
+            </div> 
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" name="firstPassword" placeholder="password" ng-model="user.plainPasswordFirst">
+            </div> 
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" name="secondPassword" placeholder="Retape password" ng-model="user.plainPasswordSecond">
+            </div>             
+            <div class="form-group text-center" >
+              <a id="btn-login" ng-click="userSignUp()" class="btn btn-success">Sign Up </a>
+            </div>
+          </form>  
+        </div>                 
+      </div> 
+    </div>
+    <div class="panel panel-info" ng-show='singupStatus' style='border-color:#EFABAB;'>
+      <div class="panel-heading" style='background-color:#EFABAB;'>
+        <div class="panel-title" style="color:cadetblue;">
+          <h4><b>Errors</b></h4>
+        </div>
+      </div>     
+      <div class="panel-body" >
+        <h4><p ng-bind-html='singupStatus'></p></h4>
+      </div>
+    </div>                
+  </div>
+</section>        

@@ -1,0 +1,16 @@
+<div class="container" ng-controller="myCatalogsCtrl">
+  <section class="row">
+  <div ng-repeat="d in logo">
+    <div class="panel panel-default col-xs-4 col-sm-3 col-md-2" style="height:250px;width:200px;">
+    <div class="panel-heading">
+      <img  ng-src="{{d.logoPath}}" width="80px" height="80px">
+    </div>
+      <div class="panel-body">
+          <p> {{d.catalogName}} </p>
+          <p> {{d.catalogCategory}} </p>
+          <p> {{d.creationDate}} </p>
+      </div>
+    </div>
+  </div>
+  </section>
+</div>

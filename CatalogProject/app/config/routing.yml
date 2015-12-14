@@ -1,0 +1,13 @@
+catalog_project_app_management:
+    resource: "@CatalogProjectAppManagementBundle/Resources/config/routing.yml"
+    prefix:   /
+
+catalog_project_user:
+    resource: "@CatalogProjectUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+#REST 
+rest : 
+  type : rest 
+  resource : "routing_rest.yml"
+  prefix : /api
