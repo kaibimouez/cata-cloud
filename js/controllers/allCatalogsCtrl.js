@@ -1,4 +1,4 @@
- app.controller('allCatalogsCtrl',function($scope,$http,$stateParams,$location,$state){
+ app.controller('allCatalogsCtrl',function($scope,$http,$stateParams,$location,$state,cfpLoadingBar){
  var result = $http.post('../web/app_dev.php/api/all/catalogs.json' )
     result.success(function(data, status, headers, config) {
 

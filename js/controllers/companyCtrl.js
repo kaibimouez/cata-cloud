@@ -1,4 +1,4 @@
-app.controller('companyCtrl', function ($scope,$http, Upload, $state, $timeout) {
+app.controller('companyCtrl', function ($scope,$http, Upload, $state, $timeout,cfpLoadingBar) {
    $scope.isConnected=function(){
    var res = $http.post("../web/app_dev.php/api/connecteds/is");
    res.success(function(data, status, headers, config) {
@@ -8,7 +8,7 @@ app.controller('companyCtrl', function ($scope,$http, Upload, $state, $timeout) 
              $state.go('home.log.log');
     }); 
     }; 
-    $timeout($scope.isConnected,1);
+    $timeout($scope.isConnected,5);
 
    $scope.sideBarInfo=function(){
    var res = $http.post("../web/app_dev.php/api/user.json");
@@ -20,5 +20,12 @@ app.controller('companyCtrl', function ($scope,$http, Upload, $state, $timeout) 
     }); 
     }; 
     $timeout($scope.sideBarInfo, 20);
+
+    $scope.start = function() {
+      cfpLoadingBar.start();
+    };
+    $timeout($scope.start,2);
+
+    
 
 });

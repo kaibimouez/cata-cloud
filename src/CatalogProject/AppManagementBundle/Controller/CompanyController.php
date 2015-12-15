@@ -60,6 +60,8 @@ class CompanyController extends Controller
         $em->persist($catalog);
         $em->flush();
         $this->uploadCatalogPicture($catalogName,$imageName);
+        return new JsonResponse('Catalog Created Successfully',200);
+        
 	}
 
 	public function uploadCatalogPicture($catalogName,$imageName){
@@ -67,14 +69,11 @@ class CompanyController extends Controller
             $tempPath = $_FILES[ 'file' ][ 'tmp_name' ];
             $filename = $_FILES["file"]["name"];
             $userEmail = $this->getUserEmail();
-            mkdir('C:\xampp\htdocs\CatalogProject\companies/'.$userEmail.'\catalogs/'.$catalogName,null,true);
-            $uploadPath  = ('C:\xampp\htdocs\CatalogProject\companies' . DIRECTORY_SEPARATOR . $userEmail . DIRECTORY_SEPARATOR . 'catalogs' . DIRECTORY_SEPARATOR . $catalogName. DIRECTORY_SEPARATOR . $imageName);
+            mkdir(__DIR__.'../../../../../companies/'.$userEmail. DIRECTORY_SEPARATOR .'catalogs'. DIRECTORY_SEPARATOR .$catalogName,null,true);
+            $uploadPath  = (__DIR__.'../../../../../companies/' . DIRECTORY_SEPARATOR . $userEmail . DIRECTORY_SEPARATOR . 'catalogs' . DIRECTORY_SEPARATOR . $catalogName. DIRECTORY_SEPARATOR . $imageName);
             move_uploaded_file( $tempPath, $uploadPath );
-            $answer = array( 'answer' => 'File transfer completed' );
-            $json = json_encode( $answer );
-            echo $json;
         } 
-        else echo 'No files';
+        else return new JsonResponse('Catalog not Created,please try again',500);
 	}
     public function getCatalogsAction(){
         $user = $this->getUser();

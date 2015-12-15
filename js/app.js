@@ -1,5 +1,8 @@
-var app = angular.module('app', ['ngSanitize','ui.router','ngFileUpload']);
+var app = angular.module('app', ['ngSanitize','ui.router','ngFileUpload','angular-loading-bar']);
 
+app.config(function(cfpLoadingBarProvider) {
+    cfpLoadingBarProvider.includeSpinner = true;
+  })
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider
@@ -70,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         })
    
 }); 
-app.controller('logoutCtrl',function($scope,$state,$http,$stateParams,$location){
+app.controller('logoutCtrl',function($scope,$state,$http,$stateParams,$location,cfpLoadingBar){
   var result = $http.post('../web/app_dev.php/api/logout')
       result.success(function(data, status, headers, config) {
         $state.go("home.log.log");
