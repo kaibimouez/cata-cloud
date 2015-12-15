@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+   <link rel="stylesheet" href="lib/bootstrap/bootstrap-theme.min.css">
+    <script src="lib/js/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src="lib/js/bootstrap.min.js"></script>
+    <link  href="lib/bootstrap/bootstrap.min.css" rel="stylesheet"> 
+    <link  href="css/index.css" rel="stylesheet">
+     <link  href="css/user_profile.css" rel="stylesheet">
+    <link href="lib/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+    <link href="lib/font-awesome-4.4.0/font-awesome-4.4.0/css/font-awesome.css" rel="stylesheet">
+    <link href="lib/bootstrap/bootstrap-social.css" rel="stylesheet">
+    <script src="lib/js/angular.min.js"></script>
+    <script src="lib/js/angular-sanitize.js"></script>
+    <script src="lib/js/angular-ui-router.min.js"></script>
+    <script src="lib/js/ui-bootstrap.min.js"></script>
+    <script src="lib/js/ng-file-upload-shim.min.js"></script> <!-- for no html5 browsers support -->
+    <script src="lib/js/ng-file-upload.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/signupCtrl.js"></script>
+    <script src="js/controllers/signinCtrl.js"></script>
+    <script src="js/controllers/allCatalogsCtrl.js"></script>
+    <script src="js/controllers/myCatalogsCtrl.js"></script>
+    <script src="js/controllers/createCatalogCtrl.js"></script>
+    <script src="js/controllers/companyCtrl.js"></script> 
+    <style type="text/css">
+      [class*="col"] { margin-bottom: 20px;margin-left:10px; }
+      img { width: 100%; }
+      body { margin-top: 10px; }
+    </style>
+  </head>
+  <body ng-app="app"> 
+    <div class="container">
+      <div ui-view></div>
+    </div> 
+  </body>
+</html>

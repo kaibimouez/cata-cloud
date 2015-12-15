@@ -1,0 +1,41 @@
+<nav class="navbar navbar-default" >
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" ui-sref="home">Cata Cloud</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <button type="button" class="btn btn-default" style="margin-top:5px;margin-right:10px;"><a ui-sref=".log.log">Sign-in</a></button>
+        </li>
+        <li class="dropdown">
+          <button type="button" class="btn btn-default" style="margin-top:5px;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sign-up <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li>
+                <a ui-sref=".signupUser">Signup as simple user</a>
+              </li>
+              <li>
+                <a ui-sref=".signupCompany">Signup as company</a>
+              </li>
+            </ul>
+          </button>
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<div class="pubZone" style="width:100%;height:350px;margin-top:-20px;">
+  <img src="http://ze-media.tn/wp-content/uploads/2015/04/ooredoo-paris-saint-germain-campagne-communication-marketing2-zemedia.jpg" style="width:100%;height:330px;"/>
+</div>
+<div class="container" >
+  <div ui-view class></div>
+</div>
+   

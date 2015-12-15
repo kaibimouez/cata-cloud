@@ -1,0 +1,36 @@
+<section class="row"  ng-controller="createCatalogCtrl">
+<div class="col-lg-offset-1 col-lg-4">
+<div class="col-lg-offset-4 col-lg-12">
+<form>
+	<div class="input-group">
+	     <span class="input-group-addon"><i class="fa fa-book"></i></span>
+	     <input  type="text" class="form-control" name="catalogName" placeholder="catalog Name" ng-model="catalogName">
+	</div>
+
+	<div class="input-group">
+	     <span class="input-group-addon"><i class="fa fa-list-alt"></i></span>
+	     <input  type="text" class="form-control" name="catalogCategory" placeholder="catalog Category" ng-model="catalogCategory">
+	</div>
+	<div class="input-group">
+	     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+	     <input class="form-control" type="date" name="catalogStartDate" placeholder="start date " ng-model="startDate" >
+	</div>
+	<div class="input-group">
+	     <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+	     <input class="form-control" type="date" name="catalogEndDate" placeholder="end date " ng-model="endDate">
+	</div>
+	<div class="input-group">
+	<span class="input-group-addon"><i class="fa fa-camera"></i></span>
+		<input type="file"  class="form-control"  ngf-select ng-model="picFile" name="file" accept="image/*" ngf-max-size="2MB" required>
+	</div>
+	<div class="input-group">
+		<button type="button" class="btn btn-primary " ng-click='createCatalog(picFile,catalogName,catalogCategory,startDate,endDate)'>Create</button>
+	</div>
+</form>
+</div>
+</div>
+</section>
+</body>
+</html>
+
+ 
