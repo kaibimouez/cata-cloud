@@ -9,16 +9,18 @@
           <p> {{d.creationDate}} </p>
           <p> {{d.startDate}} </p>
           <p> {{d.endDate}} </p>
+          <p ng-show> {{d.id}} </p>
+          <p ng-show> {{d.user_id}} </p>
         </button>
-        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+        <div class="btn-group btn-group-justified" role="group">
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default">
-                <i class="fa fa-heart"></i>
+                {{d.nbLikes}}   <i class="fa fa-heart"></i>
               </button>
             </div>
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default">
-                  <i class="fa fa-eye"></i>
+                {{d.nbViews}}   <i class="fa fa-eye"></i>
               </button>
             </div>
           </div>

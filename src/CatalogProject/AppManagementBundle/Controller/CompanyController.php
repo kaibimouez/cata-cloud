@@ -87,38 +87,61 @@ class CompanyController extends Controller
                                  'catalogCategory'=>$catalogs[$i]->catalogCategory,
                                  'creationDate' => $catalogs[$i]->creationDate,
                                  'startDate' => $catalogs[$i]->startDate,
-                                 'endDate' => $catalogs[$i]->endDate);
+                                 'endDate' => $catalogs[$i]->endDate,
+                                 'id' => $catalogs[$i]->id,
+                                 'user_id' => $catalogs[$i]->user->id,
+                                 'nbLikes' => $catalogs[$i]->nbLikes,
+                                 'nbViews' => $catalogs[$i]->nbViews);
         }
         return $array;
     }
 
     public function getAllCatalogsAction(){
         $companies = $this->getDoctrine()->getRepository('CatalogProjectUserBundle:User')->findBy(array('type'=>'company')); 
+        
         for ($j=0; $j < count($companies) ; $j++) { 
             $companyEmail = $companies[$j]->getEmail();
             $catalogs = $this->getDoctrine()->getRepository('CatalogProjectAppManagementBundle:Catalog')->findByUser($companies[$j]);
+          //  var_dump(count($catalogs));die();
             if(count($catalogs) > 0){
-                for ($i=0; $i < count($catalogs) ; $i++) {    
+                for ($i=0; $i < count($catalogs) ; $i++) {
+                    
                     $logoPath = 'companies/'.$companyEmail.'/catalogs/'.$catalogs[$i]->catalogName.'/'.$catalogs[$i]->catalogPhoto; 
                     $array[$i] = array( 'logoPath' => $logoPath , 
                                      'catalogName' =>$catalogs[$i]->catalogName,
                                      'catalogCategory'=>$catalogs[$i]->catalogCategory,
                                      'creationDate' => $catalogs[$i]->creationDate,
                                      'startDate' => $catalogs[$i]->startDate,
-                                     'endDate' => $catalogs[$i]->endDate);   
+                                     'endDate' => $catalogs[$i]->endDate,
+                                     'id' => $catalogs[$i]->id,
+                                     'user_id' => $catalogs[$i]->user->id);   
                 }
+                
             }
-            else if(count($catalogs)==0) {
-                $array = array();
-            } 
+            else  {
+                $array[$i] = array();
+                } 
+            
         $array1[$j] = $array;
         }
+   // dump($array1);die();
         return $array1;
     }
 	
 	public function getUserEmail(){
         $user =$this->getUser();
         return $user->email;
+    }
+
+    public function setNbLikesCatalogAction(){
+        $em = $this->getDoctrine()->getEntityManager();
+        $request = $this->getRequest();
+        $catalogId = $request->get('catalogId');
+        $companyId = $request->get('companyId');
+        $catalog = $this->getDoctrine()->getRepository('CatalogProjectAppManagementBundle:Catalog')->findOneBy(array('id'=>$catalogId , "user"=>$companyId));
+        $catalog->setNbLikes($catalog->getNbLikes()+1);
+        $em->persist($catalog);
+        $em->flush();
     }
      
 }

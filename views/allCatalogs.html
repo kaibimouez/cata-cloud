@@ -9,12 +9,14 @@
             <p> {{a.catalogName}} </p>
             <p> {{a.catalogCategory}} </p>
             <p> {{a.creationDate}} </p>
-            <p> {{a.startDate}} </p>
-            <p> {{a.endDate}} </p>
+            <p> From: {{a.startDate}} </p>
+            <p> To: {{a.endDate}} </p>
+            <p ng-show> {{a.id}} </p>
+            <p ng-show> {{a.user_id}} </p>
           </button>
-          <div class="btn-group btn-group-justified" role="group" aria-label="...">
+          <div class="btn-group btn-group-justified" role="group">
             <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default">
+              <button type="button" class="btn btn-default" ng-click="catalogNbLikes(a.id,a.user_id)">
                 <i class="fa fa-heart"></i>
               </button>
             </div>
