@@ -83,6 +83,11 @@ class Catalog
     */
     public $user;
 
+     /**
+     * @ORM\OneToMany(targetEntity="CatalogProject\AppManagementBundle\Entity\Article", mappedBy="catalog")
+    */
+    public $articles;  
+
 
 
 
@@ -311,5 +316,46 @@ class Catalog
     public function getNbViews()
     {
         return $this->nbViews;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add article
+     *
+     * @param \CatalogProject\AppManagementBundle\Entity\Article $article
+     *
+     * @return Catalog
+     */
+    public function addArticle(\CatalogProject\AppManagementBundle\Entity\Article $article)
+    {
+        $this->articles[] = $article;
+
+        return $this;
+    }
+
+    /**
+     * Remove article
+     *
+     * @param \CatalogProject\AppManagementBundle\Entity\Article $article
+     */
+    public function removeArticle(\CatalogProject\AppManagementBundle\Entity\Article $article)
+    {
+        $this->articles->removeElement($article);
+    }
+
+    /**
+     * Get articles
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getArticles()
+    {
+        return $this->articles;
     }
 }

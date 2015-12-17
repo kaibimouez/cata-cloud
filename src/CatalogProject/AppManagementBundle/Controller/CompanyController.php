@@ -60,7 +60,7 @@ class CompanyController extends Controller
         $em->persist($catalog);
         $em->flush();
         $this->uploadCatalogPicture($catalogName,$imageName);
-        return new JsonResponse('Catalog Created Successfully',200);
+        return new JsonResponse($catalog,200);
         
 	}
 
@@ -98,12 +98,9 @@ class CompanyController extends Controller
 
     public function getAllCatalogsAction(){
         $companies = $this->getDoctrine()->getRepository('CatalogProjectUserBundle:User')->findBy(array('type'=>'company')); 
-        
         for ($j=0; $j < count($companies) ; $j++) { 
             $companyEmail = $companies[$j]->getEmail();
             $catalogs = $this->getDoctrine()->getRepository('CatalogProjectAppManagementBundle:Catalog')->findByUser($companies[$j]);
-          //  var_dump(count($catalogs));die();
-            if(count($catalogs) > 0){
                 for ($i=0; $i < count($catalogs) ; $i++) {
                     
                     $logoPath = 'companies/'.$companyEmail.'/catalogs/'.$catalogs[$i]->catalogName.'/'.$catalogs[$i]->catalogPhoto; 
@@ -114,17 +111,13 @@ class CompanyController extends Controller
                                      'startDate' => $catalogs[$i]->startDate,
                                      'endDate' => $catalogs[$i]->endDate,
                                      'id' => $catalogs[$i]->id,
-                                     'user_id' => $catalogs[$i]->user->id);   
+                                     'user_id' => $catalogs[$i]->user->id,
+                                     'nbLikes' => $catalogs[$i]->nbLikes,
+                                     'nbViews' => $catalogs[$i]->nbViews);   
                 }
-                
-            }
-            else  {
-                $array[$i] = array();
-                } 
-            
-        $array1[$j] = $array;
+            $array1[$j]= $array;
+            $array = array();
         }
-   // dump($array1);die();
         return $array1;
     }
 	
@@ -142,6 +135,7 @@ class CompanyController extends Controller
         $catalog->setNbLikes($catalog->getNbLikes()+1);
         $em->persist($catalog);
         $em->flush();
+        
     }
      
 }

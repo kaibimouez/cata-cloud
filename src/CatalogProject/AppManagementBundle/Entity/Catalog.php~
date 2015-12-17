@@ -83,6 +83,11 @@ class Catalog
     */
     public $user;
 
+     /**
+     * @ORM\OneToMany(targetEntity="CatalogProject\AppManagementBundle\Entity\Article", mappedBy="catalog")
+    */
+    public $articles;  
+
 
 
 

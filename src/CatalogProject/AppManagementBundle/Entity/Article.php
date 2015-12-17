@@ -63,7 +63,12 @@ class Article
      *
      * @ORM\Column(name="articleSecondPrice", type="float",length=255, nullable=false)
      */
-    private $articleSecondPrice;    
+    private $articleSecondPrice; 
+
+    /**
+     * @ORM\ManyToOne(targetEntity="CatalogProject\AppManagementBundle\Entity\Catalog", inversedBy="articles")
+    */
+    public $catalog;   
 
    
 
@@ -219,5 +224,29 @@ class Article
     public function getArticleSecondPrice()
     {
         return $this->articleSecondPrice;
+    }
+
+    /**
+     * Set catalog
+     *
+     * @param \CatalogProject\AppManagementBundle\Entity\Catalog $catalog
+     *
+     * @return Article
+     */
+    public function setCatalog(\CatalogProject\AppManagementBundle\Entity\Catalog $catalog = null)
+    {
+        $this->catalog = $catalog;
+
+        return $this;
+    }
+
+    /**
+     * Get catalog
+     *
+     * @return \CatalogProject\AppManagementBundle\Entity\Catalog
+     */
+    public function getCatalog()
+    {
+        return $this->catalog;
     }
 }

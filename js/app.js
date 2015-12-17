@@ -49,6 +49,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
             })
         .state('companyProfile.create.new', {
               url: '/new',
+              params : { identifier: null },
               templateUrl: '../views/createCatalog.html'  
                   })
         .state('companyProfile.catalogs', {
@@ -64,6 +65,15 @@ app.config(function($stateProvider, $urlRouterProvider) {
               url: '/showAll',
               templateUrl: '../views/allCatalogs.html'
                   })
+        .state('companyProfile.articles', {
+              url: '/articles',
+              template: '<div ui-view class="fade-in-up"></div>'
+              })
+        .state('companyProfile.articles.new', {
+              url: '/new',
+               params : { identifier: null },
+              templateUrl: '../views/createArticle.html'
+              })
 
         
         .state('logout', {

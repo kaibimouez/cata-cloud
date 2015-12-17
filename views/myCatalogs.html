@@ -7,8 +7,8 @@
           <p> {{d.catalogName}} </p>
           <p> {{d.catalogCategory}} </p>
           <p> {{d.creationDate}} </p>
-          <p> {{d.startDate}} </p>
-          <p> {{d.endDate}} </p>
+          <p> From :{{d.startDate}} </p>
+          <p> To :{{d.endDate}} </p>
           <p ng-show> {{d.id}} </p>
           <p ng-show> {{d.user_id}} </p>
         </button>
@@ -21,6 +21,11 @@
             <div class="btn-group" role="group">
               <button type="button" class="btn btn-default">
                 {{d.nbViews}}   <i class="fa fa-eye"></i>
+              </button>
+            </div>
+            <div class="btn-group" role="group">
+              <button type="button" class="btn btn-default">
+                <i class="fa fa-trash"></i>
               </button>
             </div>
           </div>
