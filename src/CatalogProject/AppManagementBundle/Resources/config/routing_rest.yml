@@ -11,3 +11,10 @@ Company :
   name_prefix:  api_
   requirements:
         _method:  POST|GET
+
+Articles : 
+  type: rest
+  resource:     "CatalogProjectAppManagementBundle:Article"
+  name_prefix:  api_
+  requirements:
+        _method:  POST|GET

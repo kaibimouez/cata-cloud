@@ -9,9 +9,12 @@ app.controller('createCatalogCtrl', function ($scope,$http, Upload, $state, $tim
       data: {file: file, catalogName: catalogName, catalogCategory: catalogCategory, creationDate: creationDate, startDate:startDate ,endDate:endDate}
 	});
     res.success(function(data, status, headers, config) {
-      
+
       $state.transitionTo('companyProfile.articles.new',{
-                identifier:data.id
+                catalogId:data.id,
+                catalogName:data.catalogName,
+                catalogCategory:data.catalogCategory
+
             },{
                 
                 notify: true

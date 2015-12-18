@@ -1,5 +1,9 @@
- app.controller('allCatalogsCtrl',function($scope,$http,$stateParams,$location,$state,cfpLoadingBar){
- var result = $http.post('../web/app_dev.php/api/all/catalogs.json' )
+ app.controller('allCatalogsCtrl',function($scope,$rootScope,$http,$stateParams,$location,$state,cfpLoadingBar){
+  var title = $rootScope.title;
+      $rootScope.title = "all catalogs ";
+      $scope.$on('$destroy', function(){$rootScope.title = title});
+
+  var result = $http.post('../web/app_dev.php/api/all/catalogs.json' )
     result.success(function(data, status, headers, config) {
      
      $scope.logo = data;

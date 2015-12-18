@@ -1,4 +1,8 @@
-app.controller('companyCtrl', function ($scope,$http, Upload, $state, $timeout,cfpLoadingBar) {
+app.controller('companyCtrl', function ($scope,$http,$rootScope, Upload, $state, $timeout,cfpLoadingBar) {
+   var title = $rootScope.title;
+      $rootScope.title = "company profile ";
+      $scope.$on('$destroy', function(){$rootScope.title = title});
+
    $scope.isConnected=function(){
    var res = $http.post("../web/app_dev.php/api/connecteds/is");
    res.success(function(data, status, headers, config) {

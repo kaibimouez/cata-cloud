@@ -9,7 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="Article")
+ * @ORM\Table(name="article")
  */
 class Article
 {
@@ -33,9 +33,9 @@ class Article
     /**
      * @var string
      *
-     * @ORM\Column(name="articleCategory", type="string", length=255, nullable=false)
+     * @ORM\Column(name="articleDescription", type="string", length=255, nullable=false)
      */
-    private $articleCategory;
+    private $articleDescription;
 
     /**
      * @var date
@@ -248,5 +248,29 @@ class Article
     public function getCatalog()
     {
         return $this->catalog;
+    }
+
+    /**
+     * Set articleDescription
+     *
+     * @param string $articleDescription
+     *
+     * @return Article
+     */
+    public function setArticleDescription($articleDescription)
+    {
+        $this->articleDescription = $articleDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get articleDescription
+     *
+     * @return string
+     */
+    public function getArticleDescription()
+    {
+        return $this->articleDescription;
     }
 }

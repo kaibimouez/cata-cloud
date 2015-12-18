@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ngSanitize','ui.router','ngFileUpload','angular-loading-bar']);
+var app = angular.module('app', ['ngSanitize','ui.router','ngFileUpload','angular-loading-bar','angularFileUpload']);
 
 app.config(function(cfpLoadingBarProvider) {
     cfpLoadingBarProvider.includeSpinner = true;
@@ -39,11 +39,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
         .state('companyProfile', {
             url: '/companyProfile',
-            params : { id: null , type: null },
             templateUrl: '../views/companyProfile.html'
         })            
         .state('companyProfile.create', {
               url: '/create',
+              params : { identifier: null },
               template: '<div ui-view class="fade-in-up"></div>',
               title: 'create catalog'
             })
@@ -71,9 +71,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
               })
         .state('companyProfile.articles.new', {
               url: '/new',
-               params : { identifier: null },
+              params : { catalogId: null ,catalogName: null , catalogCategory:null },
+              templateUrl: '../views/articlesUpload.html'
+             
+          })    
+        /*.state('companyProfile.articles.new', {
+              url: '/new',
+              params : { catalogName: null , catalogCategory:null },
               templateUrl: '../views/createArticle.html'
-              })
+              //controller : 'createArticleCtrl'
+              })*/
 
         
         .state('logout', {
@@ -138,7 +145,9 @@ app.controller('logoutCtrl',function($scope,$state,$http,$stateParams,$location,
       }
 
 });*/
-
+/*app.controller('createArticleCtrl',function($scope ,$stateParams,$http,$location,$state){
+  $scope.identifier = $stateParams.identifier;
+});*/
 
 /*app.controller('signinController',function($scope ,$stateParams,$http,$location,$state){
 

@@ -1,2 +1,33 @@
-<h1> create articles pages </h1>
- catalog id {{identifier}} 
+<section class="row"  ng-controller="createArticleCtrl">
+<div class="col-lg-4">
+	<div class="list-group">
+	    <div class="col-xs-4 col-sm-3 col-md-2" style="width: 230px;">
+	          <button type="button" class="list-group-item"><img  ng-src="{{logoPath}}" width="100px;" height="100px;"></button>
+	          <button type="button" class="list-group-item">
+	            <p> {{catalogName}} </p>
+	            <p> {{catalogCategory}} </p>
+	          </button>
+	          <div class="btn-group btn-group-justified" role="group">
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-default" ng-click="c = !c">
+	              <i class="fa fa-plus"></i>
+	              </button>
+	            </div>
+	            <div class="btn-group" role="group">
+	              <button type="button" class="btn btn-default" >
+	              <i class="fa fa-thumbs-up"></i>
+	              </button>
+	            </div>
+	          </div>
+	    </div>    
+	</div>
+	<div ng-show="c">
+		<p> thats it!! </p>
+	</div>
+</form>
+</div>
+</section>
+</body>
+</html>
+
+ 

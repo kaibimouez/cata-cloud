@@ -6,3 +6,7 @@ Rest_AppManagementBundle:
   type : rest
   resource: "@CatalogProjectAppManagementBundle/Resources/config/routing_rest.yml"
 
+Articles_Rest : 
+  type : rest
+  resource: "@CatalogProjectAppManagementBundle/Resources/config/routing_rest.yml"
+
